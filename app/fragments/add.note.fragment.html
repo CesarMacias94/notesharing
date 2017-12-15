@@ -1,0 +1,21 @@
+<div class="margin32">
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="text" class="form-control" ng-model="name" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Surname</label>
+            <input type="text" class="form-control" ng-model="surname" placeholder="Enter Surname">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Biography</label>
+            <input type="text" class="form-control" ng-model="bio" placeholder="Enter Biography">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Job</label>
+            <input type="text" class="form-control" ng-model="job" placeholder="Enter Job">
+        </div>
+        <button type="submit" class="btn btn-primary" ng-click="save(name, surname, bio, job)">Submit</button>
+    </form>
+</div>

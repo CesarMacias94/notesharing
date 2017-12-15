@@ -1,0 +1,103 @@
+.logoimg {
+    width: 68px;
+    height: 72px;
+    background-image: url(bicocca.png);
+    background-size: cover;
+    cursor: pointer;
+}
+.userimg {
+    height: 18%;
+    background-image: url(background_bicocca.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+}
+.padding0 {
+    padding: 0px;
+}
+.margin0 {
+    margin: 0px;
+}
+.margin6 {
+    margin: 6px;
+}
+.margin12 {
+    margin: 12px;
+}
+.margin32 {
+    margin: 32px;
+}
+.flex{
+    display: flex;
+}
+.flex1 {
+    flex: 1;
+}
+.title {
+    text-align: center;
+    margin: 32px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+}
+.xlarge {
+    font-size: x-large !important;
+}
+.menu {
+    flex-direction: row;
+}
+.visible {
+    display: block;
+}
+.none {
+    display: none !important;
+}
+.textcenter {
+    text-align: center
+}
+.nameuser {
+    display: flex;
+    justify-content: center;
+}
+.remove:hover {
+    color: red;
+    height: 15%;
+    margin-top: 6px;
+    margin-right: 6px;
+}
+.remove {
+    height: 15%;
+    margin-top: 6px;
+    margin-right: 6px;
+}
+.update:hover {
+    color: darkorange;
+}
+.save:hover {
+    color: green;
+}
+.bio {
+    max-height: 160px;
+    overflow-y: scroll;
+}
+.margintb20 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.listuser {
+    display: grid;
+}
+.name {
+    font-weight: 500;
+}
+
+@media (max-width: 767px) {
+    .img {
+        display: none;
+    }
+    .nameuser {
+        display: flex;
+        justify-content: center;
+        margin: 12px;
+    }
+}
