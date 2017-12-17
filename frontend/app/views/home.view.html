@@ -11,12 +11,11 @@
                     <div class="flex1"></div>
                     <i class="fa fa-times remove" aria-hidden="true" ng-click="remove(u)"></i>
                 </div>
-                <div class="row card-text margin0">
-                    <p class="margin6 name" ng-model="search.name">{{u.name}}</p>
-                    <button type="button" class="btn btn-secondary btn-block margin6" ng-click="showNotes(u)">Show notes</button>
+                <div class="margin6">
+                    <p class="name" ng-model="search.name">{{u.name}}</p>
+                    <button type="button" class="btn btn-secondary btn-block" ng-click="showNotes(u)">Show notes</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<ui-view></ui-view>

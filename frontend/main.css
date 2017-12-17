@@ -4,11 +4,11 @@
     background-image: url(bicocca.png);
     background-size: cover;
     cursor: pointer;
+    display: flex;
 }
 .userimg {
-    height: 18%;
     background-image: url(background_bicocca.jpg);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     display: flex;
 }
@@ -20,9 +20,6 @@
 }
 .margin6 {
     margin: 6px;
-}
-.margin12 {
-    margin: 12px;
 }
 .margin32 {
     margin: 32px;
@@ -40,23 +37,10 @@
     display: flex;
     justify-content: center;
 }
-.xlarge {
-    font-size: x-large !important;
-}
 .menu {
     flex-direction: row;
 }
-.visible {
-    display: block;
-}
-.none {
-    display: none !important;
-}
-.textcenter {
-    text-align: center
-}
 .nameuser {
-    display: flex;
     justify-content: center;
 }
 .remove:hover {
@@ -70,9 +54,6 @@
     margin-top: 6px;
     margin-right: 6px;
 }
-.update:hover {
-    color: darkorange;
-}
 .save:hover {
     color: green;
 }
@@ -80,21 +61,11 @@
     max-height: 160px;
     overflow-y: scroll;
 }
-.margintb20 {
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-.listuser {
-    display: grid;
-}
 .name {
     font-weight: 500;
 }
 
 @media (max-width: 767px) {
-    .img {
-        display: none;
-    }
     .nameuser {
         display: flex;
         justify-content: center;
