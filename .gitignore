@@ -1,6 +1,9 @@
 #NPM libraries
 node_modules
 
+#IDEA
+backend/.idea
+
 # Compiled class file
 *.class
 
