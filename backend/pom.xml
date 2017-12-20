@@ -22,6 +22,13 @@
             <version>5.4.1.Final</version>
         </dependency>
 
+        <!-- MYSQL -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>6.0.6</version>
+        </dependency>
+
     </dependencies>
 
 </project>
