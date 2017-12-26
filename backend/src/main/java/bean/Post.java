@@ -33,6 +33,7 @@ public class Post {
         this.cod_post = cod_post;
     }
 
+    @Column(name = "text", nullable = false)
     public String getText() {
         return text;
     }
@@ -41,6 +42,7 @@ public class Post {
         this.text = text;
     }
 
+    @Column(name = "name", nullable = false)
     public String getName() {
         return name;
     }
