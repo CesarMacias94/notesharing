@@ -10,17 +10,16 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import bean.Course;
+import bean.Note;
 
 @Repository
-@Qualifier(value="CourseDAO")
-public class CourseDAO {
+@Qualifier(value="NoteDAO")
+public class NoteDAO {
     private static SessionFactory factory;
 
-    public CourseDAO() {
+    public NoteDAO() {
         super();
 
         try {
@@ -32,27 +31,24 @@ public class CourseDAO {
         }
     }
 
-    //Restituisce la lista di tutti i corsi
-    public List<Course> getCourses() {
-        List<Course> courses = new ArrayList<Course>();
+    //Restituisce i dati di una nota
+    public Note getNote(String cod_note) {
+        Note note = new Note();
         Session session = factory.openSession();
         Transaction transaction = null;
 
         try{
             transaction = session.beginTransaction();
 
-            Criteria cr = session.createCriteria(Course.class);
-            courses = (List<Course>)cr.list();
+            Criteria cr = session.createCriteria(Note.class);
+            cr.add(Restrictions.eq("cod_note", cod_note));
+            List<Note> n = (List<Note>)cr.list();
 
-            for(Course c: courses) {
-                Course course = new Course();
-                course.setCod_course(c.getCod_course());
-                course.setName(c.getName());
-                course.setDescription(c.getDescription());
-                course.setNotes(c.getNotes());
-
-                courses.add(course);
-            }
+            note.setCod_note(n.get(0).getCod_note());
+            note.setName(n.get(0).getName());
+            note.setText(n.get(0).getText());
+            note.setCod_user(n.get(0).getCod_user());
+            note.setCod_course(n.get(0).getCod_course());
 
             transaction.commit();
         }catch (HibernateException e) {
@@ -62,35 +58,31 @@ public class CourseDAO {
             session.close();
         }
 
-        return courses;
+        return note;
     }
 
-    //Restituisce i dati di un corso
-    public Course getCourse(String cod_course) {
-        Course course = new Course();
+    //Crea una nota
+    public Integer createNote(Note note) {
+        //CODICE DA RIVEDERE
         Session session = factory.openSession();
         Transaction transaction = null;
+
+        Integer id_db = null;
 
         try{
             transaction = session.beginTransaction();
 
-            Criteria cr = session.createCriteria(Course.class);
-            cr.add(Restrictions.eq("cod_course", cod_course));
-            List<Course> c = (List<Course>)cr.list();
-
-            course.setCod_course(c.get(0).getCod_course());
-            course.setName(c.get(0).getName());
-            course.setDescription(c.get(0).getDescription());
-            course.setNotes(c.get(0).getNotes());
+            id_db = (Integer) session.save(note);
 
             transaction.commit();
-        }catch (HibernateException e) {
+
+        }catch (Exception e) {
             if (transaction != null) transaction.rollback();
                 e.printStackTrace();
-        }finally {
+        }
+        finally {
             session.close();
         }
-
-        return course;
+        return id_db;
     }
 }

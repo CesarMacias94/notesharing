@@ -1,24 +1,24 @@
 package bean;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "course", uniqueConstraints = @UniqueConstraint(columnNames = "cod_course"))
 public class Course {
     private int cod_course;
-    private String description;
     private String name;
+    private String description;
+    private Note[] notes;
 
-    public Course(int cod_course, String description, String name) {
+    public Course() {
+        super();
+    }
+
+    public Course(int cod_course, String description, String name, Note[] notes) {
         this.cod_course = cod_course;
         this.description = description;
         this.name = name;
+        this.notes = notes;
     }
 
     //verificare che nel db il tipo di chiave rispetti i canoni di @generatedvalue e di @generationtype
@@ -33,6 +33,15 @@ public class Course {
         this.cod_course = cod_course;
     }
 
+    @Column(name = "name", nullable = false)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Column(name = "description", nullable = false)
     public String getDescription() {
         return description;
@@ -42,12 +51,12 @@ public class Course {
         this.description = description;
     }
 
-    @Column(name = "name", nullable = false)
-    public String getName() {
-        return name;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "course")
+    public Note[] getNotes() {
+        return notes;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNotes(Note[] notes) {
+        this.notes = notes;
     }
 }

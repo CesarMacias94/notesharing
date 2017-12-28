@@ -1,12 +1,6 @@
 package bean;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "cod_user"))
@@ -17,14 +11,20 @@ public class User {
     private String surname;
     private String date_of_birth;
     private String email;
+    private Note[] notes;
 
-    public User(int cod_user, String username, String name, String surname, String date_of_birth, String email) {
+    public User() {
+        super();
+    }
+
+    public User(int cod_user, String username, String name, String surname, String date_of_birth, String email, Note[] notes) {
         this.cod_user = cod_user;
         this.username = username;
         this.name = name;
         this.surname = surname;
         this.date_of_birth = date_of_birth;
         this.email = email;
+        this.notes = notes;
     }
 
     //verificare che nel db il tipo di chiave rispetti i canoni di @generatedvalue e di @generationtype
@@ -83,5 +83,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    public Note[] getNotes() {
+        return notes;
+    }
+
+    public void setNotes(Note[] notes) {
+        this.notes = notes;
     }
 }
