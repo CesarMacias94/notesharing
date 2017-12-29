@@ -1,6 +1,11 @@
-app.controller('homeController', function($scope, $state, $rootScope) {
+app.controller('homeController', function($scope, $state, $rootScope, CourseService) {
     $scope.init = function() {
         //chiamata al backend per prendere tutti i corsi
+        /*CourseService.getCourses()
+        .success(function(res) {
+            $scope.courses = res;
+        });*/
+
         $scope.courses = [{
             code: "27122017",
             name: "Processo E Sviluppo Del Software",
@@ -21,7 +26,6 @@ app.controller('homeController', function($scope, $state, $rootScope) {
     }
 
     $scope.course = function(course) {
-        //chiamata al backend per prendere tutti le note di un corse, per ora non usata
         $rootScope.courseCode = course.code;
         $state.go('course', {
             name: course.name.split(" ").join("-")

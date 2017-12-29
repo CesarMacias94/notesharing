@@ -1,8 +1,12 @@
-app.controller('courseController', function($scope, $state, $stateParams, $rootScope) {
-    console.log("CODICE CORSO ---> ",$rootScope.courseCode);
+app.controller('courseController', function($scope, $state, $stateParams, $rootScope, CourseService) {
+    console.log("CODICE CORSO ---> ", $rootScope.courseCode);
 
     $scope.init = function() {
-        //chiamata al backend per prendere tutte le note di questo i corso
+        //chiamata al backend per prendere tutti i dati di questo corso
+        /*CourseService.getCourse($rootScope.courseCode)
+        .success(function(res) {
+            $scope.course = res;
+        });*/
         $scope.course = {
             name: "Processo E Sviluppo Del Software",
             description: "lorem ipsum",
@@ -25,7 +29,6 @@ app.controller('courseController', function($scope, $state, $stateParams, $rootS
     $scope.init();
 
     $scope.note = function(note) {
-        //chiamata al backend per prendere tutti le note di un corse, per ora non usata
         $rootScope.noteCode = note.code;
         $state.go('note', {
             name: note.name.split(" ").join("-")
