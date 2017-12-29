@@ -1,17 +1,16 @@
-#NPM libraries
+# NPM libraries
 node_modules
-
-#IDEA
-backend/.idea
-backend/.idea/workspace.xml
-*.iml
 
 # Compiled class file
 *.class
 
+# IDEA
+backend/.idea/
+backend/.idea/workspace.xml
+*.iml
+
 # Log file
 *.log
-
 
 # Eclipse
 .classpath
