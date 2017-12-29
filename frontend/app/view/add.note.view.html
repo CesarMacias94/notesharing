@@ -1,0 +1,25 @@
+<div class="margin32">
+    <form>
+        <div class="form-group">
+            <h3>Course</h3>
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{course}}
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" ng-click="chooseCourse(c)" ng-repeat="c in courses">{{c}}</a>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Name</h3>
+            <input type="text" class="form-control" ng-model="name" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <h3>Text</h3>
+            <input type="text" class="form-control" style="height: 50%" ng-model="text" placeholder="Enter Text">
+        </div>        
+
+        <button type="submit" class="btn btn-primary" ng-click="save(name, text, course)">Save</button>
+
+    </form>
+</div>
