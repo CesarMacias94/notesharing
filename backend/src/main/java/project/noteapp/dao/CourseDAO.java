@@ -1,4 +1,4 @@
-package dao;
+package project.noteapp.dao;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.Course;
+import project.noteapp.bean.Course;
 
 @Repository
 @Qualifier(value="CourseDAO")

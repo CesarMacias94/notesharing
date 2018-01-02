@@ -1,4 +1,4 @@
-package controller;
+package project.noteapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import bean.User;
-import service.UserService;
+import project.noteapp.bean.User;
+import project.noteapp.service.UserService;
 
 @RestController
 public class UserController {

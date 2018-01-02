@@ -1,4 +1,4 @@
-package dao;
+package project.noteapp.dao;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import bean.User;
+import project.noteapp.bean.User;
 
 @Repository
 @Qualifier(value="UserDAO")

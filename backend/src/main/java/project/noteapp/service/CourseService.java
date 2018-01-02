@@ -1,12 +1,12 @@
-package service;
+package project.noteapp.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import bean.Course;
-import dao.CourseDAO;
+import project.noteapp.bean.Course;
+import project.noteapp.dao.CourseDAO;
 
 @Service
 public class CourseService {

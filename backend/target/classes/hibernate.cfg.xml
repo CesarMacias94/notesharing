@@ -20,9 +20,9 @@
         <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
 
         <!-- List of XML mapping files -->
-        <mapping class="bean.User"></mapping>
-        <mapping class="bean.Note"></mapping>
-        <mapping class="bean.Course"></mapping>
+        <mapping class="project.noteapp.bean.User"></mapping>
+        <mapping class="project.noteapp.bean.Note"></mapping>
+        <mapping class="project.noteapp.bean.Course"></mapping>
 
     </session-factory>
 

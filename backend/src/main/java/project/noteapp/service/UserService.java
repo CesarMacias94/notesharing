@@ -1,10 +1,10 @@
-package service;
+package project.noteapp.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import bean.User;
-import dao.UserDAO;
+import project.noteapp.bean.User;
+import project.noteapp.dao.UserDAO;
 
 @Service
 public class UserService {

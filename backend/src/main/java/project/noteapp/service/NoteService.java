@@ -1,10 +1,10 @@
-package service;
+package project.noteapp.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import bean.Note;
-import dao.NoteDAO;
+import project.noteapp.bean.Note;
+import project.noteapp.dao.NoteDAO;
 
 @Service
 public class NoteService {

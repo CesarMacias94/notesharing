@@ -1,4 +1,4 @@
-package bean;
+package project.noteapp.bean;
 
 import javax.persistence.*;
 
