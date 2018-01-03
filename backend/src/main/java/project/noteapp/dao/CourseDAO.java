@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.HibernateException;
-import org.hibernate.cfg.Configuration;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -24,7 +24,7 @@ public class CourseDAO {
         super();
 
         try {
-            factory = new Configuration().configure().buildSessionFactory();
+            factory = new AnnotationConfiguration().configure().buildSessionFactory();
         }
         catch (Throwable ex) {
             System.err.println("Failed to create sessionFactory object. " + ex);

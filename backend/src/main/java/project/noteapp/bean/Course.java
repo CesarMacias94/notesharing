@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "course", uniqueConstraints = @UniqueConstraint(columnNames = "cod_course"))
 public class Course {
-    private int cod_course;
+    private Integer cod_course;
     private String name;
     private String description;
     private Note[] notes;
@@ -14,7 +14,7 @@ public class Course {
         super();
     }
 
-    public Course(int cod_course, String description, String name, Note[] notes) {
+    public Course(Integer cod_course, String description, String name, Note[] notes) {
         this.cod_course = cod_course;
         this.description = description;
         this.name = name;
@@ -25,11 +25,11 @@ public class Course {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "cod_course", unique = true, nullable = false)
-    public int getCod_course() {
+    public Integer getCod_course() {
         return cod_course;
     }
 
-    public void setCod_course(int cod_course) {
+    public void setCod_course(Integer cod_course) {
         this.cod_course = cod_course;
     }
 

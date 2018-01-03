@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "cod_user"))
 public class User {
-    private int cod_user;
+    private Integer cod_user;
     private String username;
     private String name;
     private String surname;
@@ -17,7 +17,7 @@ public class User {
         super();
     }
 
-    public User(int cod_user, String username, String name, String surname, String date_of_birth, String email, Note[] notes) {
+    public User(Integer cod_user, String username, String name, String surname, String date_of_birth, String email, Note[] notes) {
         this.cod_user = cod_user;
         this.username = username;
         this.name = name;
@@ -31,11 +31,11 @@ public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "cod_user", unique = true, nullable = false)
-    public int getCod_user() {
+    public Integer getCod_user() {
         return cod_user;
     }
 
-    public void setCod_user(int cod_user) {
+    public void setCod_user(Integer cod_user) {
         this.cod_user = cod_user;
     }
 

@@ -1,0 +1,12 @@
+<Context>
+    <Resource
+            name="jdbc/Noteapp"
+            auth="Container"
+            type="javax.sql.DataSource"
+            username="notesharingDB"
+            password="Notesharing.db"
+            driverClassName="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://localhost:3306/notesharingdb"
+            maxActive="10"
+            maxIdle="4"/>
+</Context>

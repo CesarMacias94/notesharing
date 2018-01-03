@@ -12,17 +12,14 @@
 
         <!-- Database connection settings -->
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/notesharingdb</property>
-        <property name="hibernate.connection.username">notesharingDB</property>
-        <property name="hibernate.connection.password">Notesharing.db</property>
 
-        <!-- Specify session context -->
-        <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+        <!-- DataSource -->
+        <property name="hibernate.connection.datasource">java:comp/env/jdbc/Noteapp</property>
 
         <!-- List of XML mapping files -->
-        <mapping class="project.noteapp.bean.User"></mapping>
-        <mapping class="project.noteapp.bean.Note"></mapping>
         <mapping class="project.noteapp.bean.Course"></mapping>
+        <mapping class="project.noteapp.bean.Note"></mapping>
+        <mapping class="project.noteapp.bean.User"></mapping>
 
     </session-factory>
 
