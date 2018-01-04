@@ -1,6 +1,7 @@
 package project.noteapp.bean;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "cod_user"))
@@ -11,13 +12,13 @@ public class User {
     private String surname;
     private String date_of_birth;
     private String email;
-    private Note[] notes;
+    private List<Note> notes;
 
     public User() {
         super();
     }
 
-    public User(Integer cod_user, String username, String name, String surname, String date_of_birth, String email, Note[] notes) {
+    public User(Integer cod_user, String username, String name, String surname, String date_of_birth, String email, List<Note> notes) {
         this.cod_user = cod_user;
         this.username = username;
         this.name = name;
@@ -86,11 +87,11 @@ public class User {
     }
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    public Note[] getNotes() {
+    public List<Note> getNotes() {
         return notes;
     }
 
-    public void setNotes(Note[] notes) {
+    public void setNotes(List<Note> notes) {
         this.notes = notes;
     }
 }

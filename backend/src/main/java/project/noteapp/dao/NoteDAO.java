@@ -47,8 +47,8 @@ public class NoteDAO {
             note.setCod_note(n.get(0).getCod_note());
             note.setName(n.get(0).getName());
             note.setText(n.get(0).getText());
-            note.setCod_user(n.get(0).getCod_user());
-            note.setCod_course(n.get(0).getCod_course());
+            note.setUser(n.get(0).getUser());
+            note.setCourse(n.get(0).getCourse());
 
             transaction.commit();
         }catch (HibernateException e) {

@@ -8,19 +8,19 @@ public class Note {
     private Integer cod_note;
     private String name;
     private String text;
-    private Integer cod_user;
-    private Integer cod_course;
+    private User user;
+    private Course course;
 
     public Note() {
         super();
     }
 
-    public Note(Integer cod_note, String text, String name, Integer cod_user, Integer cod_course) {
+    public Note(Integer cod_note, String text, String name, User user, Course course) {
         this.cod_note = cod_note;
         this.text = text;
         this.name = name;
-        this.cod_user = cod_user;
-        this.cod_course = cod_course;
+        this.user = user;
+        this.course = course;
     }
 
     //verificare che nel db il tipo di chiave rispetti i canoni di @generatedvalue e di @generationtype
@@ -55,21 +55,21 @@ public class Note {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cod_user", nullable = false)
-    public Integer getCod_user() {
-        return cod_user;
+    public User getUser() {
+        return user;
     }
 
-    public void setCod_user(Integer cod_user) {
-        this.cod_user = cod_user;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cod_course", nullable = false)
-    public Integer getCod_course() {
-        return cod_course;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setCod_course(Integer cod_course) {
-        this.cod_course = cod_course;
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }
