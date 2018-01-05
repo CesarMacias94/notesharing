@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import project.noteapp.bean.Course;
+import project.noteapp.bean.CourseDTO;
 
 @Repository
 @Qualifier(value="CourseDAO")
@@ -33,8 +34,9 @@ public class CourseDAO {
     }
 
     //Restituisce la lista di tutti i corsi
-    public List<Course> getCourses() {
-        List<Course> courses = new ArrayList<Course>();
+    public List<CourseDTO> getCourses() {
+        List<Course> courses;
+        List<CourseDTO> list = new ArrayList<>();
         Session session = factory.openSession();
         Transaction transaction = null;
 
@@ -45,13 +47,12 @@ public class CourseDAO {
             courses = (List<Course>)cr.list();
 
             for(Course c: courses) {
-                Course course = new Course();
+                CourseDTO course = new CourseDTO();
                 course.setCod_course(c.getCod_course());
                 course.setName(c.getName());
                 course.setDescription(c.getDescription());
-                course.setNotes(c.getNotes());
 
-                courses.add(course);
+                list.add(course);
             }
 
             transaction.commit();
@@ -62,7 +63,7 @@ public class CourseDAO {
             session.close();
         }
 
-        return courses;
+        return list;
     }
 
     //Restituisce i dati di un corso
@@ -75,9 +76,10 @@ public class CourseDAO {
             transaction = session.beginTransaction();
 
             Criteria cr = session.createCriteria(Course.class);
-            cr.add(Restrictions.eq("cod_course", cod_course));
+            cr.add(Restrictions.eq("cod_course", Integer.parseInt(cod_course)));
             List<Course> c = (List<Course>)cr.list();
 
+            //Usare CourseDTO e creare una chiamata per le note
             course.setCod_course(c.get(0).getCod_course());
             course.setName(c.get(0).getName());
             course.setDescription(c.get(0).getDescription());

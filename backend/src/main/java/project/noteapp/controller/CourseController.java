@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 import project.noteapp.bean.Course;
+import project.noteapp.bean.CourseDTO;
 import project.noteapp.service.CourseService;
 
 @RestController
@@ -22,7 +23,7 @@ public class CourseController {
     @RequestMapping("api/courses")
     public @ResponseBody ResponseEntity<?> getCourses() {
         try {
-            return new ResponseEntity<List<Course>>(courseService.getCourses(), HttpStatus.OK);
+            return new ResponseEntity<List<CourseDTO>>(courseService.getCourses(), HttpStatus.OK);
         }
         catch(Exception e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

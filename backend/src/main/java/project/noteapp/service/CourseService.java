@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 import project.noteapp.bean.Course;
+import project.noteapp.bean.CourseDTO;
 import project.noteapp.dao.CourseDAO;
 
 @Service
@@ -14,7 +15,7 @@ public class CourseService {
     @Autowired
     CourseDAO courseDAO;
 
-    public List<Course> getCourses() {
+    public List<CourseDTO> getCourses() {
         return courseDAO.getCourses();
     }
 

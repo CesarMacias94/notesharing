@@ -1,11 +1,10 @@
 app.service("CourseService", function($http) {
-    //aggiungere nei percorsi http://localhost:8080/
     var _getCourses = function () {
-        return $http.get("api/courses");
+        return $http.get("http://localhost:8080/notesharing/api/courses");
     }
 
     var _getCourse = function (codCourse) {
-        return $http.get("api/course/"+codCourse);
+        return $http.get("http://localhost:8080/notesharing/api/course/"+codCourse);
     }
 
     return {

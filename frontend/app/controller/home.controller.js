@@ -1,12 +1,12 @@
 app.controller('homeController', function($scope, $state, $rootScope, CourseService) {
     $scope.init = function() {
         //chiamata al backend per prendere tutti i corsi
-        /*CourseService.getCourses()
-        .success(function(res) {
-            $scope.courses = res;
-        });*/
+        CourseService.getCourses()
+        .then(function(res) {
+            $scope.courses = res.data;
+        });
 
-        $scope.courses = [{
+        /*$scope.courses = [{
             code: "27122017",
             name: "Processo E Sviluppo Del Software",
             description: "lorem ipsum",
@@ -14,7 +14,8 @@ app.controller('homeController', function($scope, $state, $rootScope, CourseServ
                 name: "UML",
                 text: "diagrammi UML"
             }]
-        }];
+        }];*/
+
         console.log("CORSI ---> ",$scope.courses);
     }
 
@@ -26,7 +27,7 @@ app.controller('homeController', function($scope, $state, $rootScope, CourseServ
     }
 
     $scope.course = function(course) {
-        $rootScope.courseCode = course.code;
+        $rootScope.courseCode = course.cod_course;
         $state.go('course', {
             name: course.name.split(" ").join("-")
         });
