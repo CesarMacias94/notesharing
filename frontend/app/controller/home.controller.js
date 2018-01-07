@@ -4,19 +4,8 @@ app.controller('homeController', function($scope, $state, $rootScope, CourseServ
         CourseService.getCourses()
         .then(function(res) {
             $scope.courses = res.data;
+            console.log("CORSI ---> ",$scope.courses);
         });
-
-        /*$scope.courses = [{
-            code: "27122017",
-            name: "Processo E Sviluppo Del Software",
-            description: "lorem ipsum",
-            notes: [{
-                name: "UML",
-                text: "diagrammi UML"
-            }]
-        }];*/
-
-        console.log("CORSI ---> ",$scope.courses);
     }
 
     $scope.init();

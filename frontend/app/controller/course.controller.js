@@ -1,35 +1,25 @@
-app.controller('courseController', function($scope, $state, $stateParams, $rootScope, CourseService) {
+app.controller('courseController', function($scope, $state, $stateParams, $rootScope, CourseService, NoteService) {
     console.log("CODICE CORSO ---> ", $rootScope.courseCode);
 
     $scope.init = function() {
         //chiamata al backend per prendere tutti i dati di questo corso
-        /*CourseService.getCourse($rootScope.courseCode)
-        .success(function(res) {
-            $scope.course = res;
-        });*/
-        $scope.course = {
-            name: "Processo E Sviluppo Del Software",
-            description: "lorem ipsum",
-            notes: [
-                {
-                    code: "127122017",
-                    name: "UML",
-                    text: "diagrammi UML"
-                },
-                {
-                    code: "21227122017",
-                    name:"Design Pattern",
-                    text: "design Pattern"
-                }
-            ]};
-        $scope.notes = $scope.course.notes;
-        console.log("NOTE ---> ",$scope.notes);
+        CourseService.getCourse($rootScope.courseCode)
+        .then(function(res) {
+            $scope.course = res.data;
+            console.log("CORSO ---> ",$scope.course);
+
+            NoteService.getNotesByCourse($scope.course.cod_course)
+            .then(function(res) {
+                $scope.notes = res.data;
+                console.log("NOTE ---> ",$scope.notes);
+            })
+        });
     }
 
     $scope.init();
 
     $scope.note = function(note) {
-        $rootScope.noteCode = note.code;
+        $rootScope.noteCode = note.cod_note;
         $state.go('note', {
             name: note.name.split(" ").join("-")
         });

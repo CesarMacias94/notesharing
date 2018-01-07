@@ -5,14 +5,17 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import project.noteapp.bean.Note;
+import project.noteapp.bean.NoteDTO;
 
 @Repository
 @Qualifier(value="NoteDAO")
@@ -31,6 +34,42 @@ public class NoteDAO {
         }
     }
 
+    //Restituisce la lista di tutte le note di un corso
+    public List<NoteDTO> getNotesByCourse(String cod_course) {
+        List<Note> notes;
+        List<NoteDTO> list = new ArrayList<>();
+        Session session = factory.openSession();
+        Transaction transaction = null;
+
+        try{
+            transaction = session.beginTransaction();
+
+            String hql = "FROM Note n WHERE n.course.cod_course = :p";
+            Query query = session.createQuery(hql);
+            query.setParameter("p", Integer.parseInt(cod_course));
+
+            notes = (List<Note>) query.list();
+
+            for(Note n: notes) {
+                NoteDTO note = new NoteDTO();
+                note.setCod_note(n.getCod_note());
+                note.setName(n.getName());
+                note.setText(n.getText());
+
+                list.add(note);
+            }
+
+            transaction.commit();
+        }catch (HibernateException e) {
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+
+        return list;
+    }
+
     //Restituisce i dati di una nota
     public Note getNote(String cod_note) {
         Note note = new Note();
@@ -41,7 +80,7 @@ public class NoteDAO {
             transaction = session.beginTransaction();
 
             Criteria cr = session.createCriteria(Note.class);
-            cr.add(Restrictions.eq("cod_note", cod_note));
+            cr.add(Restrictions.eq("cod_note", Integer.parseInt(cod_note)));
             List<Note> n = (List<Note>)cr.list();
 
             note.setCod_note(n.get(0).getCod_note());

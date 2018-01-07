@@ -19,7 +19,7 @@ public class CourseService {
         return courseDAO.getCourses();
     }
 
-    public Course getCourse(String cod_course) {
+    public CourseDTO getCourse(String cod_course) {
         return courseDAO.getCourse(cod_course);
     }
 }

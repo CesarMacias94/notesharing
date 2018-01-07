@@ -66,9 +66,9 @@ public class CourseDAO {
         return list;
     }
 
-    //Restituisce i dati di un corso
-    public Course getCourse(String cod_course) {
-        Course course = new Course();
+    //Restituisce i dati di un corso, ma non le sue note
+    public CourseDTO getCourse(String cod_course) {
+        CourseDTO course = new CourseDTO();
         Session session = factory.openSession();
         Transaction transaction = null;
 
@@ -79,11 +79,9 @@ public class CourseDAO {
             cr.add(Restrictions.eq("cod_course", Integer.parseInt(cod_course)));
             List<Course> c = (List<Course>)cr.list();
 
-            //Usare CourseDTO e creare una chiamata per le note
             course.setCod_course(c.get(0).getCod_course());
             course.setName(c.get(0).getName());
             course.setDescription(c.get(0).getDescription());
-            course.setNotes(c.get(0).getNotes());
 
             transaction.commit();
         }catch (HibernateException e) {

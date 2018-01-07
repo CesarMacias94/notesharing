@@ -1,14 +1,18 @@
-app.service("NoteService", function() {
-    //aggiungere nei percorsi http://localhost:8080/
+app.service("NoteService", function($http) {
+    var _getNotesByCourse = function (codCourse) {
+        return $http.get("http://localhost:8080/notesharing/api/notescourse/"+codCourse);
+    }
+
     var _getNote = function (codNote) {
-        return $http.get("api/note/"+codNote);
+        return $http.get("http://localhost:8080/notesharing/api/note/"+codNote);
     }
 
     var _addNote = function (note) {
-        return $http.post("api/addnote", note);
+        return $http.post("http://localhost:8080/notesharing/api/addnote", note);
     }
 
     return {
+        getNotesByCourse: _getNotesByCourse,
         getNote: _getNote,
         addNote: _addNote
     }

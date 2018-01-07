@@ -1,7 +1,5 @@
 package project.noteapp.bean;
 
-import java.util.List;
-
 public class CourseDTO {
     private Integer cod_course;
     private String name;

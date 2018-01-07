@@ -33,7 +33,7 @@ public class CourseController {
     @RequestMapping("api/course/{cod_course}")
     public @ResponseBody ResponseEntity<?> getCourse(@PathVariable String cod_course) {
         try {
-            return new ResponseEntity<Course>(courseService.getCourse(cod_course), HttpStatus.OK);
+            return new ResponseEntity<CourseDTO>(courseService.getCourse(cod_course), HttpStatus.OK);
         }
         catch(Exception e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

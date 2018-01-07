@@ -6,13 +6,26 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import project.noteapp.bean.Note;
+import project.noteapp.bean.NoteDTO;
 import project.noteapp.service.NoteService;
+
+import java.util.List;
 
 @RestController
 public class NoteController {
 
     @Autowired
     NoteService noteService;
+
+    @RequestMapping("api/notescourse/{cod_course}")
+    public @ResponseBody ResponseEntity<?> getNotesByCourse(@PathVariable String cod_course) {
+        try {
+            return new ResponseEntity<List<NoteDTO>>(noteService.getNotesByCourse(cod_course), HttpStatus.OK);
+        }
+        catch(Exception e) {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     @RequestMapping("api/note/{cod_note}")
     public @ResponseBody ResponseEntity<?> getNote(@PathVariable String cod_note) {
