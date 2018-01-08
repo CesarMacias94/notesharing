@@ -1,0 +1,18 @@
+<div>
+    <div class="title">
+        <h2>{{user.name}}</h2>
+    </div>
+
+    <div class="row center">
+        <div class="card col-md-3 margin6 padding0" ng-repeat="n in notes | filter:searchText">
+            <div class="card-body padding0">
+                <div class="notebackground">
+                </div>
+                <div class="margin6">
+                    <p class="name" style="text-align: center" ng-model="search.name">{{n.name}}</p>
+                    <button type="button" class="btn btn-secondary btn-block" ng-click="note(n)">Show note</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -24,7 +24,6 @@ public class Course {
 
     //verificare che nel db il tipo di chiave rispetti i canoni di @generatedvalue e di @generationtype
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "cod_course", unique = true, nullable = false)
     public Integer getCod_course() {
         return cod_course;

@@ -19,5 +19,10 @@ app.config(function($stateProvider) {
         url: '/note/:name',
         templateUrl: 'app/view/note.view.html',
         controller: 'noteController'
+    }).state({
+        name: 'profile',
+        url: '/profile',
+        templateUrl: 'app/view/profile.view.html',
+        controller: 'userController'
     });
 });

@@ -14,7 +14,9 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import project.noteapp.bean.Course;
 import project.noteapp.bean.Note;
+import project.noteapp.bean.User;
 import project.noteapp.bean.NoteDTO;
 
 @Repository
@@ -71,8 +73,8 @@ public class NoteDAO {
     }
 
     //Restituisce i dati di una nota
-    public Note getNote(String cod_note) {
-        Note note = new Note();
+    public NoteDTO getNote(String cod_note) {
+        NoteDTO note = new NoteDTO();
         Session session = factory.openSession();
         Transaction transaction = null;
 
@@ -86,8 +88,6 @@ public class NoteDAO {
             note.setCod_note(n.get(0).getCod_note());
             note.setName(n.get(0).getName());
             note.setText(n.get(0).getText());
-            note.setUser(n.get(0).getUser());
-            note.setCourse(n.get(0).getCourse());
 
             transaction.commit();
         }catch (HibernateException e) {
@@ -101,8 +101,7 @@ public class NoteDAO {
     }
 
     //Crea una nota
-    public Integer createNote(Note note) {
-        //CODICE DA RIVEDERE
+    public Integer createNote(NoteDTO note) {
         Session session = factory.openSession();
         Transaction transaction = null;
 
@@ -111,7 +110,11 @@ public class NoteDAO {
         try{
             transaction = session.beginTransaction();
 
-            id_db = (Integer) session.save(note);
+            User user = (User) session.load(User.class, note.getCod_user());
+            Course course = (Course) session.load(Course.class, note.getCod_course());
+            Note new_note = new Note(note.getCod_note(), note.getText(), note.getName(), user, course);
+
+            id_db = (Integer) session.save(new_note);
 
             transaction.commit();
 

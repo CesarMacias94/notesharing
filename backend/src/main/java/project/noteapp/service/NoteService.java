@@ -19,11 +19,11 @@ public class NoteService {
         return noteDAO.getNotesByCourse(cod_course);
     }
 
-    public Note getNote(String cod_note) {
+    public NoteDTO getNote(String cod_note) {
         return noteDAO.getNote(cod_note);
     }
 
-    public Integer createNote(Note note) {
+    public Integer createNote(NoteDTO note) {
         return noteDAO.createNote(note);
     }
 }

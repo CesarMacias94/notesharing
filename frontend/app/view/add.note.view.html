@@ -6,7 +6,7 @@
                 {{course}}
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" ng-click="chooseCourse(c)" ng-repeat="c in courses">{{c}}</a>
+                <a class="dropdown-item" ng-click="chooseCourse(c)" ng-repeat="c in courses">{{c.name}}</a>
             </div>
         </div>
 
@@ -17,7 +17,7 @@
         <div class="form-group">
             <h3>Text</h3>
             <input type="text" class="form-control" style="height: 50%" ng-model="text" placeholder="Enter Text">
-        </div>        
+        </div>
 
         <button type="submit" class="btn btn-primary" ng-click="save(name, text, course)">Save</button>
 

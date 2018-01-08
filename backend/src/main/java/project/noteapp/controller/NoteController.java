@@ -30,7 +30,7 @@ public class NoteController {
     @RequestMapping("api/note/{cod_note}")
     public @ResponseBody ResponseEntity<?> getNote(@PathVariable String cod_note) {
         try {
-            return new ResponseEntity<Note>(noteService.getNote(cod_note), HttpStatus.OK);
+            return new ResponseEntity<NoteDTO>(noteService.getNote(cod_note), HttpStatus.OK);
         }
         catch(Exception e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -38,7 +38,7 @@ public class NoteController {
     }
 
     @RequestMapping(path = "api/addnote", method=RequestMethod.POST)
-    public @ResponseBody ResponseEntity<?> createNote(@RequestBody Note note) {
+    public @ResponseBody ResponseEntity<?> createNote(@RequestBody NoteDTO note) {
         try {
             return new ResponseEntity<Integer>(noteService.createNote(note), HttpStatus.OK);
         }

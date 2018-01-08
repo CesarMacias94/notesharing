@@ -1,7 +1,6 @@
-app.service("UserService", function() {
-    //aggiungere nei percorsi http://localhost:8080/
+app.service("UserService", function($http) {
     var _getUser = function (codUser) {
-        return $http.get("api/user/"+codCourse);
+        return $http.get("http://localhost:8080/notesharing/api/user/"+codUser);
     }
 
     return {

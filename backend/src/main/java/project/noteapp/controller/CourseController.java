@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import project.noteapp.bean.Course;
 import project.noteapp.bean.CourseDTO;
 import project.noteapp.service.CourseService;
 
