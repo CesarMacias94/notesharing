@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 import project.noteapp.bean.User;
+import project.noteapp.bean.UserDTO;
 
 @Repository
 @Qualifier(value="UserDAO")
@@ -32,8 +33,8 @@ public class UserDAO {
     }
 
     //Restituisce i dati di un utente
-    public User getUser(String cod_user) {
-        User user = new User();
+    public UserDTO getUser(String cod_user) {
+        UserDTO user = new UserDTO();
         Session session = factory.openSession();
         Transaction transaction = null;
 
@@ -41,7 +42,7 @@ public class UserDAO {
             transaction = session.beginTransaction();
 
             Criteria cr = session.createCriteria(User.class);
-            cr.add(Restrictions.eq("cod_user", cod_user));
+            cr.add(Restrictions.eq("cod_user", Integer.parseInt(cod_user)));
             List<User> u = (List<User>)cr.list();
 
             user.setCod_user(u.get(0).getCod_user());
@@ -50,7 +51,6 @@ public class UserDAO {
             user.setSurname(u.get(0).getSurname());
             user.setDate_of_birth(u.get(0).getDate_of_birth());
             user.setEmail(u.get(0).getEmail());
-            user.setNotes(u.get(0).getNotes());
 
             transaction.commit();
         }catch (HibernateException e) {

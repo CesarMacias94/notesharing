@@ -72,6 +72,42 @@ public class NoteDAO {
         return list;
     }
 
+    //Restituisce la lista di tutte le note di un utente
+    public List<NoteDTO> getNotesByUser(String cod_user) {
+        List<Note> notes;
+        List<NoteDTO> list = new ArrayList<>();
+        Session session = factory.openSession();
+        Transaction transaction = null;
+
+        try{
+            transaction = session.beginTransaction();
+
+            String hql = "FROM Note n WHERE n.user.cod_user = :p";
+            Query query = session.createQuery(hql);
+            query.setParameter("p", Integer.parseInt(cod_user));
+
+            notes = (List<Note>) query.list();
+
+            for(Note n: notes) {
+                NoteDTO note = new NoteDTO();
+                note.setCod_note(n.getCod_note());
+                note.setName(n.getName());
+                note.setText(n.getText());
+
+                list.add(note);
+            }
+
+            transaction.commit();
+        }catch (HibernateException e) {
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+
+        return list;
+    }
+
     //Restituisce i dati di una nota
     public NoteDTO getNote(String cod_note) {
         NoteDTO note = new NoteDTO();

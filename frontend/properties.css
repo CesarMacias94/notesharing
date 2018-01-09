@@ -1,0 +1,24 @@
+.padding0 {
+    padding: 0px;
+}
+.margin0 {
+    margin: 0px;
+}
+.margin6 {
+    margin: 6px;
+}
+.marginprofilemail {
+    margin-top: 62px;
+}
+.margin32 {
+    margin: 32px;
+}
+.flex{
+    display: flex;
+}
+.flex1 {
+    flex: 1;
+}
+.center {
+    justify-content: center;
+}

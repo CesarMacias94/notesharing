@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import project.noteapp.bean.User;
+import project.noteapp.bean.UserDTO;
 import project.noteapp.service.UserService;
 
 @RestController
@@ -20,7 +20,7 @@ public class UserController {
     @RequestMapping("api/user/{cod_user}")
     public @ResponseBody ResponseEntity<?> getUser(@PathVariable String cod_user) {
         try {
-            return new ResponseEntity<User>(userService.getUser(cod_user), HttpStatus.OK);
+            return new ResponseEntity<UserDTO>(userService.getUser(cod_user), HttpStatus.OK);
         }
         catch(Exception e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

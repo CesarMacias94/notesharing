@@ -3,6 +3,10 @@ app.service("NoteService", function($http) {
         return $http.get("http://localhost:8080/notesharing/api/notescourse/"+codCourse);
     }
 
+    var _getNotesByUser = function (codUser) {
+        return $http.get("http://localhost:8080/notesharing/api/notesuser/"+codUser);
+    }
+
     var _getNote = function (codNote) {
         return $http.get("http://localhost:8080/notesharing/api/note/"+codNote);
     }
@@ -13,6 +17,7 @@ app.service("NoteService", function($http) {
 
     return {
         getNotesByCourse: _getNotesByCourse,
+        getNotesByUser: _getNotesByUser,
         getNote: _getNote,
         addNote: _addNote
     }

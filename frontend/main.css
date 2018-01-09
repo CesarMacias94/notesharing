@@ -29,23 +29,40 @@
     display: flex;
     height: 16%;
 }
-.padding0 {
-    padding: 0px;
+.profilebackground {
+    position: relative;
+    overflow: hidden;
+    background-color: #222;
+    min-height: 30%;
+    display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;     /* center items horizontally, in this case */
 }
-.margin0 {
-    margin: 0px;
+.profilebackground:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.6;
+    -webkit-filter: blur(4px); /* Safari */
+    filter: blur(4px);
+    background-image: url(background_user.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
-.margin6 {
-    margin: 6px;
-}
-.margin32 {
-    margin: 32px;
-}
-.flex{
-    display: flex;
-}
-.flex1 {
-    flex: 1;
+.profileheader {
+    color: white;
+    z-index: 2;
 }
 .title {
     text-align: center;
@@ -56,27 +73,6 @@
 }
 .menu {
     flex-direction: row;
-}
-.center {
-    justify-content: center;
-}
-.remove:hover {
-    color: red;
-    height: 15%;
-    margin-top: 6px;
-    margin-right: 6px;
-}
-.remove {
-    height: 15%;
-    margin-top: 6px;
-    margin-right: 6px;
-}
-.save:hover {
-    color: green;
-}
-.bio {
-    max-height: 160px;
-    overflow-y: scroll;
 }
 .name {
     font-weight: 500;
@@ -91,5 +87,20 @@
         display: flex;
         justify-content: center;
         margin: 12px;
+    }
+    .profilebackground {
+        background-image: url(background_user.jpg);
+        background-size: cover;
+        display: flex;
+        height: 18%;
+        margin: 0%;
+    }
+    .profileheader {
+        color: white;
+        text-shadow: 2px 2px 4px #000000;
+        font-size: 26px;
+    }
+    .marginprofilemail {
+        margin-top: 12px;
     }
 }

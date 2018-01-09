@@ -19,6 +19,10 @@ public class NoteService {
         return noteDAO.getNotesByCourse(cod_course);
     }
 
+    public List<NoteDTO> getNotesByUser(String cod_user) {
+        return noteDAO.getNotesByUser(cod_user);
+    }
+
     public NoteDTO getNote(String cod_note) {
         return noteDAO.getNote(cod_note);
     }

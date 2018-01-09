@@ -27,6 +27,16 @@ public class NoteController {
         }
     }
 
+    @RequestMapping("api/notesuser/{cod_user}")
+    public @ResponseBody ResponseEntity<?> getNotesByUser(@PathVariable String cod_user) {
+        try {
+            return new ResponseEntity<List<NoteDTO>>(noteService.getNotesByUser(cod_user), HttpStatus.OK);
+        }
+        catch(Exception e) {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @RequestMapping("api/note/{cod_note}")
     public @ResponseBody ResponseEntity<?> getNote(@PathVariable String cod_note) {
         try {
