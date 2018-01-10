@@ -7,6 +7,7 @@ app.controller('userController', function($scope, $state, $stateParams, $rootSco
         UserService.getUser(1)
         .then(function(res) {
             $scope.user = res.data;
+            $scope.user.date_of_birth = res.data.date_of_birth.substring(0,10);
             console.log("UTENTE ---> ",$scope.user);
 
             NoteService.getNotesByUser(1)
@@ -19,5 +20,10 @@ app.controller('userController', function($scope, $state, $stateParams, $rootSco
 
     $scope.init();
 
-    //metodo per visualizzare la nota
+    $scope.note = function(note) {
+        $rootScope.noteCode = note.cod_note;
+        $state.go('note', {
+            name: note.name.split(" ").join("-")
+        });
+    }
 });

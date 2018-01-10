@@ -52,14 +52,7 @@ public class NoteDAO {
 
             notes = (List<Note>) query.list();
 
-            for(Note n: notes) {
-                NoteDTO note = new NoteDTO();
-                note.setCod_note(n.getCod_note());
-                note.setName(n.getName());
-                note.setText(n.getText());
-
-                list.add(note);
-            }
+            list = this.setNoteList(notes);
 
             transaction.commit();
         }catch (HibernateException e) {
@@ -88,14 +81,7 @@ public class NoteDAO {
 
             notes = (List<Note>) query.list();
 
-            for(Note n: notes) {
-                NoteDTO note = new NoteDTO();
-                note.setCod_note(n.getCod_note());
-                note.setName(n.getName());
-                note.setText(n.getText());
-
-                list.add(note);
-            }
+            list = this.setNoteList(notes);
 
             transaction.commit();
         }catch (HibernateException e) {
@@ -105,6 +91,20 @@ public class NoteDAO {
             session.close();
         }
 
+        return list;
+    }
+
+    //Setta la lista da ritornare, "Extract Method" usato da getNotesByCourse e getNotesByUser
+    public List<NoteDTO> setNoteList(List<Note> notes) {
+        List<NoteDTO> list = new ArrayList<>();
+        for(Note n: notes) {
+            NoteDTO note = new NoteDTO();
+            note.setCod_note(n.getCod_note());
+            note.setName(n.getName());
+            note.setText(n.getText());
+
+            list.add(note);
+        }
         return list;
     }
 

@@ -1,4 +1,4 @@
-/*Rimuovere le classi inutilizzate*/
+/*Rimuovere le classi inutilizzate e rinominare le classi con '-' in mezzo*/
 .logoimg {
     width: 68px;
     height: 72px;
@@ -16,24 +16,66 @@
     display: flex;
 }
 .coursesbackground {
+    position: relative;
+    overflow: hidden;
+    background-color: #868e96;
+    min-height: 120px;
+    display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;
+}
+.coursesbackground:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.6;
+    -webkit-filter: blur(3px); /* Safari */
+    filter: blur(3px);
     background-image: url(background_bicocca.jpg);
-    background-size: cover;
     background-repeat: no-repeat;
-    display: flex;
-    height: 16%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 .notebackground {
+    position: relative;
+    overflow: hidden;
+    background-color: #868e96;
+    min-height: 120px;
+    display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;
+}
+.notebackground:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.6;
+    -webkit-filter: blur(3px); /* Safari */
+    filter: blur(3px);
     background-image: url(background_course.jpg);
-    background-size: cover;
     background-repeat: no-repeat;
-    display: flex;
-    height: 16%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 .profilebackground {
     position: relative;
     overflow: hidden;
-    background-color: #222;
-    min-height: 30%;
+    background-color: #868e96;
+    min-height: 240px;
     display: flex;           /* establish flex container */
     flex-direction: column;  /* make main axis vertical */
     justify-content: center; /* center items vertically, in this case */
@@ -43,26 +85,25 @@
     content: ' ';
     display: block;
     position: absolute;
-    left: 0;
-    top: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
     opacity: 0.6;
-    -webkit-filter: blur(4px); /* Safari */
-    filter: blur(4px);
+    -webkit-filter: blur(3px); /* Safari */
+    filter: blur(3px);
     background-image: url(background_user.jpg);
     background-repeat: no-repeat;
-    background-position: 50% 0;
     -ms-background-size: cover;
     -o-background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
 }
-.profileheader {
+.cardheader {
     color: white;
+    text-shadow: -2px 2px 3px #343a40;
     z-index: 2;
+    margin: 6px;
 }
 .title {
     text-align: center;
@@ -74,11 +115,8 @@
 .menu {
     flex-direction: row;
 }
-.name {
-    font-weight: 500;
-}
 .cardBody {
-    height: 18%;
+    height: 135px;
     overflow-y: auto;
 }
 
@@ -89,18 +127,42 @@
         margin: 12px;
     }
     .profilebackground {
-        background-image: url(background_user.jpg);
-        background-size: cover;
-        display: flex;
-        height: 18%;
-        margin: 0%;
+        position: relative;
+        overflow: hidden;
+        background-color: #868e96;
+        min-height: 135px;
+        display: flex;           /* establish flex container */
+        flex-direction: column;  /* make main axis vertical */
+        justify-content: center; /* center items vertically, in this case */
+        align-items: center;     /* center items horizontally, in this case */
     }
-    .profileheader {
+    /* cambiare la img di background */
+    .profilebackground:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.6;
+        -webkit-filter: blur(3px); /* Safari */
+        filter: blur(3px);
+        background-image: url(background_user.jpg);
+        background-repeat: no-repeat;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    .cardheader {
         color: white;
-        text-shadow: 2px 2px 4px #000000;
-        font-size: 26px;
+        text-shadow: -2px 2px 3px #343a40;
+        font-size: 25px;
+        margin: 6px;
+        z-index: 2;
     }
     .marginprofilemail {
-        margin-top: 12px;
+        margin-top: 12px !important;
     }
 }

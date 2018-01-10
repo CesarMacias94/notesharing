@@ -19,6 +19,7 @@ app.controller('addnoteController', function($scope, CourseService, NoteService)
     }
 
     $scope.save = function(name, text, course) {
+        //manca validazione input
         if(course != "Choose A Course") {
             //cod user, da definire come settarlo
             $scope.note = {

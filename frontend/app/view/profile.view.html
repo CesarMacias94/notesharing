@@ -1,17 +1,17 @@
 <div>
     <div class="profilebackground">
-        <h1 class="profileheader">{{user.name}} {{user.surname}}</h1>
-        <h2 class="profileheader">{{user.date_of_birth}}</h2>
-        <h2 class="profileheader marginprofilemail">{{user.email}}</h2>
+        <h1 class="cardheader">{{user.name}} {{user.surname}}</h1>
+        <h2 class="cardheader">{{user.date_of_birth}}</h2>
+        <h2 class="cardheader marginprofilemail">{{user.email}}</h2>
     </div>
 
-    <div class="row center">
+    <div class="row center margint32">
         <div class="card col-md-3 margin6 padding0" ng-repeat="n in notes | filter:searchText">
             <div class="card-body padding0">
                 <div class="notebackground">
+                    <p class="cardheader fonts25" ng-model="search.name">{{n.name}}</p>
                 </div>
                 <div class="margin6">
-                    <p class="name" style="text-align: center" ng-model="search.name">{{n.name}}</p>
                     <button type="button" class="btn btn-secondary btn-block" ng-click="note(n)">Show note</button>
                 </div>
             </div>
