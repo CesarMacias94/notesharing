@@ -16,6 +16,9 @@
 .margint32 {
     margin-top: 32px;
 }
+.marginb26 {
+    margin-bottom: 26px;
+}
 .flex{
     display: flex;
 }
@@ -27,6 +30,9 @@
 }
 .fonts25 {
     font-size: 25px;
+}
+.fonts36 {
+    font-size: 36px;
 }
 .row {
     display: -ms-flexbox;
