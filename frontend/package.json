@@ -17,8 +17,9 @@
   },
   "homepage": "https://github.com/CesarMacias94/notesharing#readme",
   "dependencies": {
-    "angular": "^1.6.7",
     "@uirouter/angularjs": "^1.0.3",
+    "angular": "^1.6.7",
+    "firebaseui": "^2.5.1",
     "jquery": "^3.2.1"
   }
 }

@@ -24,5 +24,21 @@ app.config(function($stateProvider) {
         url: '/profile',
         templateUrl: 'app/view/profile.view.html',
         controller: 'userController'
+    }).state({
+        name: 'users',
+        url: '/users',
+        templateUrl: 'app/view/users.view.html',
+        controller: 'usersController'
+    }).state({
+        name: 'login',
+        url: '/login',
+        templateUrl: 'login/login.html',
+        controller: 'loginController'
+    }).state({
+        name: 'signup',
+        url: '/signup',
+        templateUrl: 'login/signup.html',
+        controller: 'signupController',
+        parent: 'login'
     });
 });

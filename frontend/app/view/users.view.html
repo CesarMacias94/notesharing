@@ -1,0 +1,19 @@
+<div>
+    <div class="title">
+        <h2>These are our Users</h2>
+    </div>
+
+    <div class="row center">
+        <div class="card col-md-3 margin6 padding0" ng-repeat="u in users | filter:searchText">
+            <div class="card-body padding0">
+                <div class="profilebackground">
+                    <p class="cardheader fonts25" ng-model="search.name">{{u.username}}</p>
+                </div>
+                <div class="margin6">
+                    <p class="cardBody" ng-model="search.name">{{u.name}}</p>
+                    <button type="button" class="btn btn-secondary btn-block" ng-click="course(n)">Show profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

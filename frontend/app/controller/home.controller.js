@@ -11,7 +11,6 @@ app.controller('homeController', function($scope, $state, $rootScope, CourseServ
     $scope.init();
 
     $scope.profile = function() {
-        //Ancora da sviluppare
         $state.go('profile');
     }
 

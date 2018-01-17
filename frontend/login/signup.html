@@ -1,0 +1,45 @@
+<div class="{{signupVisibility}}">
+    <form class="login100-form">
+    <div class="wrap-input100 marginb26">
+        <span class="label-input100">Name</span>
+        <input class="input100" type="text" ng-model="name" placeholder="Enter name">
+        <span class="focus-input100"></span>
+    </div>
+    <div class="wrap-input100 marginb26">
+        <span class="label-input100">Surname</span>
+        <input class="input100" type="text" ng-model="surname" placeholder="Enter surname">
+        <span class="focus-input100"></span>
+    </div>
+    <div class="wrap-input100 marginb26">
+        <span class="label-input100">Date Of Birth</span>
+        <input class="input100" type="date" ng-model="date">
+        <span class="focus-input100"></span>
+    </div>
+    <div class="wrap-input100 marginb26">
+        <span class="label-input100">Email</span>
+        <input class="input100" type="email" ng-model="email" placeholder="mario.rossi@gmail.com">
+        <span class="focus-input100"></span>
+    </div>
+    <div class="wrap-input100 marginb26">
+        <span class="label-input100">Username</span>
+        <input class="input100" type="text" ng-model="username" placeholder="Enter username">
+        <span class="focus-input100"></span>
+    </div>
+    <div class="wrap-input100 marginb26">
+        <span class="label-input100">Password</span>
+        <input class="input100" type="password" ng-model="password" placeholder="Enter password">
+        <span class="focus-input100"></span>
+    </div>
+    <div class="container-login100-form-btn">
+        <div class="container-login100-form-btn">
+            <span class="login-img"></span>
+            <button class="login100-form-btn" ng-click="save(name, surname, date, email, username, password)">
+                Save
+            </button>
+            <button class="signup100-form-btn" ng-click="back()">
+                Back
+            </button>
+        </div>
+    </div>
+</form>
+</div>

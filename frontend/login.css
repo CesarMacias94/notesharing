@@ -107,7 +107,7 @@
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
-    padding: 45px 80px 60px 180px;
+    padding: 45px 80px 50px 180px;
     margin: 0px;
 }
 .wrap-input100 {
@@ -183,7 +183,7 @@ input:-ms-input-placeholder {color: #999999;}
         display: -ms-flexbox;
         display: flex;
         flex-wrap: wrap;
-        padding: 45px 19px 60px 120px;
+        padding: 45px 19px 40px 120px;
         margin: 0px;
     }
     .container-login100-form-btn {

@@ -1,51 +1,68 @@
 <!DOCETYPE html>
 <html ng-app='notesharing'>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-        <link rel="stylesheet" href="main.css">
-        <link rel="stylesheet" href="properties.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body ng-controller="homeController">
-        <nav class="navbar navbar-dark bg-dark">
-            <div class="logoimg" ng-click="home()">
-            </div>
-            <div class="navbar navbar-dark bg-dark flex1" id="navbarNav">
-                <ul class="navbar-nav menu">
-                    <li class="nav-item active margin6">
-                        <a class="nav-link" href="#!/home">Home</a>
-                    </li>
-                    <li class="nav-item active margin6">
-                        <a class="nav-link" href="#!/addnote">Add Note</a>
-                    </li>
-                    <li class="nav-item active margin6">
-                        <a class="nav-link" href="#!/users">Users</a>
-                    </li>
-                </ul>
-                <form class="form-inline margin0">
-                    <input class="form-control mr-sm-2 flex1" type="text" ng-model="searchText" placeholder="Search" aria-label="Search">
-                </form>
-            </div>
-            <div class="profileimg" ng-click="profile()">
-            </div>
-        </nav>
-        <ui-view></ui-view>
-        <script src="./node_modules/angular/angular.min.js"></script>
-        <script src="./node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
-        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-        <script src="app/app.js"></script>
-        <script src="app/config.js"></script>
-        <script src="app/controller/home.controller.js"></script>
-        <script src="app/controller/course.controller.js"></script>
-        <script src="app/controller/note.controller.js"></script>
-        <script src="app/controller/add.note.controller.js"></script>
-        <script src="app/controller/profile.controller.js"></script>
-		<script src="app/service/course.service.js"></script>
-        <script src="app/service/note.service.js"></script>
-        <script src="app/service/user.service.js"></script>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="properties.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body ng-controller="homeController">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="logoimg" ng-click="home()">
+        </div>
+        <div class="navbar navbar-dark bg-dark flex1" id="navbarNav">
+            <ul class="navbar-nav menu">
+                <li class="nav-item active margin6">
+                    <a class="nav-link" href="#!/home">Home</a>
+                </li>
+                <li class="nav-item active margin6">
+                    <a class="nav-link" href="#!/addnote">Add Note</a>
+                </li>
+                <li class="nav-item active margin6">
+                    <a class="nav-link" href="#!/users">Users</a>
+                </li>
+            </ul>
+            <form class="form-inline margin0">
+                <input class="form-control mr-sm-2 flex1" type="text" ng-model="searchText" placeholder="Search" aria-label="Search">
+            </form>
+        </div>
+        <div class="profileimg" ng-click="profile()">
+        </div>
+    </nav>
+    <ui-view></ui-view>
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDR2-fF0WeV-z-bcJpOw-YGpVGQCZMxRXQ",
+        authDomain: "notesharing-52040.firebaseapp.com",
+        databaseURL: "https://notesharing-52040.firebaseio.com",
+        projectId: "notesharing-52040",
+        storageBucket: "",
+        messagingSenderId: "900007064402"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/config.js"></script>
+    <script src="login/login.controller.js"></script>
+    <script src="login/signup.controller.js"></script>
+    <script src="app/controller/home.controller.js"></script>
+    <script src="app/controller/course.controller.js"></script>
+    <script src="app/controller/note.controller.js"></script>
+    <script src="app/controller/add.note.controller.js"></script>
+    <script src="app/controller/profile.controller.js"></script>
+    <script src="app/controller/users.controller.js"></script>
+    <script src="app/service/course.service.js"></script>
+    <script src="app/service/note.service.js"></script>
+    <script src="app/service/user.service.js"></script>
+</body>
 </html>

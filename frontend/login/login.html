@@ -4,46 +4,44 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../login.css">
-    <link rel="stylesheet" href="../main.css">
-    <link rel="stylesheet" href="../properties.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="properties.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
                 <div class="loginbackground">
-                    <p class="cardheader fonts36">Sign In</p>
+                    <p class="cardheader fonts36">{{title}}</p>
                 </div>
-
-				<form class="login100-form">
-					<div class="wrap-input100 marginb26">
-						<span class="label-input100">Username</span>
-						<input class="input100" type="text" name="username" placeholder="Enter username">
-                        <span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 marginb26">
-						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="pass" placeholder="Enter password">
-                        <span class="focus-input100"></span>
-					</div>
-
-					<div class="container-login100-form-btn">
-                        <span class="login-img"></span>
-						<button class="login100-form-btn">
-							Login
-						</button>
-                        <button class="signup100-form-btn">
-							Sign Up
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
+                <div class="{{loginVisibility}}">
+                    <form class="login100-form">
+                        <div class="wrap-input100 marginb26">
+                            <span class="label-input100">Username</span>
+                            <input class="input100" type="text" ng-model="email" placeholder="Enter username">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 marginb26">
+                            <span class="label-input100">Password</span>
+                            <input class="input100" type="password" ng-model="password" placeholder="Enter password">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="container-login100-form-btn">
+                            <span class="login-img"></span>
+                            <button class="login100-form-btn" ng-click="signin(email, password)">
+                                Login
+                            </button>
+                            <button class="signup100-form-btn" ng-click="signup()">
+                                Sign Up
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <ui-view></ui-view>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

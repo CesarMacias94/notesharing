@@ -8,6 +8,7 @@ import java.util.List;
 public class User {
     private Integer cod_user;
     private String username;
+    private String password;
     private String name;
     private String surname;
     private String date_of_birth;
@@ -18,9 +19,10 @@ public class User {
         super();
     }
 
-    public User(Integer cod_user, String username, String name, String surname, String date_of_birth, String email, List<Note> notes) {
+    public User(Integer cod_user, String username, String password, String name, String surname, String date_of_birth, String email, List<Note> notes) {
         this.cod_user = cod_user;
         this.username = username;
+        this.password = password;
         this.name = name;
         this.surname = surname;
         this.date_of_birth = date_of_birth;
@@ -49,6 +51,15 @@ public class User {
         this.username = username;
     }
 
+    @Column(name = "password", nullable = false)
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Column(name = "name", nullable = false)
     public String getName() {
         return name;
@@ -67,8 +78,7 @@ public class User {
         this.surname = surname;
     }
 
-    //aggiungere nullable = false nel caso si voglia validare che l'utente sia maggiorenne
-    @Column(name = "date_of_birth")
+    @Column(name = "date_of_birth", nullable = false)
     public String getDate_of_birth() {
         return date_of_birth;
     }
