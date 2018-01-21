@@ -1,4 +1,4 @@
-app.controller('addnoteController', function($rootScope, $scope, CourseService, NoteService, LoginService) {
+app.controller('addnoteController', function($scope, $state, $window, CourseService, NoteService, LoginService) {
     $scope.note;
     $scope.name;
     $scope.text;
@@ -20,7 +20,8 @@ app.controller('addnoteController', function($rootScope, $scope, CourseService, 
     $scope.init();
 
     $scope.profile = function() {
-        $state.go('profile', {userCode: $rootScope.userCode});
+        console.log("SESSION ---> ",$window.localStorage);
+        $state.go('profile', {userCode: $window.localStorage.userCode});
     }
 
     $scope.logout = function() {
@@ -38,7 +39,7 @@ app.controller('addnoteController', function($rootScope, $scope, CourseService, 
             $scope.note = {
                 text: text,
                 name: name,
-                cod_user: $rootScope.userCode,
+                cod_user: $window.localStorage.userCode,
                 cod_course: $scope.cod_course
             };
             //chiamata al backend per salvare il post

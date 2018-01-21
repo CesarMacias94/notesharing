@@ -1,5 +1,5 @@
-app.controller('homeController', function($rootScope, $scope, $state, $window, CourseService, LoginService) {
-    $rootScope.user = firebase.auth().currentUser;
+app.controller('homeController', function($window, $scope, $state, $window, CourseService, LoginService) {
+    $window.localStorage.user = firebase.auth().currentUser;
 
     $scope.init = function() {
         LoginService.redirect();
@@ -16,16 +16,20 @@ app.controller('homeController', function($rootScope, $scope, $state, $window, C
     $scope.init();
 
     $scope.profile = function() {
-        $state.go('profile', {userCode: $rootScope.userCode});
+        $state.go('profile', {userCode: $window.localStorage.userCode});
     }
 
     $scope.logout = function() {
-        firebase.auth().signOut();
+        firebase.auth().signOut()
+        .then(function(res) {
+            console.log("LOG OUT ---> ",res);
+        });
+
         $state.go('login');
     }
 
     $scope.course = function(course) {
-        $rootScope.courseCode = course.cod_course;
+        $window.localStorage.courseCode = course.cod_course;
         $state.go('course', {
             name: course.name.split(" ").join("-")
         });

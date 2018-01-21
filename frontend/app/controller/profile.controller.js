@@ -1,4 +1,4 @@
-app.controller('userController', function($scope, $state, $stateParams, $rootScope, UserService, NoteService, LoginService) {
+app.controller('userController', function($scope, $state, $stateParams, $window, UserService, NoteService, LoginService) {
     $scope.init = function() {
         LoginService.redirect();
 
@@ -18,7 +18,7 @@ app.controller('userController', function($scope, $state, $stateParams, $rootSco
     $scope.init();
 
     $scope.profile = function() {
-        $state.go('profile', {userCode: $rootScope.userCode});
+        $state.go('profile', {userCode: $window.localStorage.userCode});
     }
 
     $scope.logout = function() {
@@ -27,7 +27,7 @@ app.controller('userController', function($scope, $state, $stateParams, $rootSco
     }
 
     $scope.note = function(note) {
-        $rootScope.noteCode = note.cod_note;
+        $window.localStorage.noteCode = note.cod_note;
         $state.go('note', {
             name: note.name.split(" ").join("-")
         });

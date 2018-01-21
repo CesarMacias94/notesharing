@@ -29,6 +29,8 @@
         <p class="margin6">{{course.description}}</p>
     </div>
 
+    <i class="{{notesAvailability}}">There are not notes availables, please add one.</i>
+
     <div class="row center">
         <div class="card col-md-3 margin6 padding0" ng-repeat="n in notes | filter:searchText">
             <div class="card-body padding0">

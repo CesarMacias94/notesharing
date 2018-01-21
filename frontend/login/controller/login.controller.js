@@ -1,4 +1,4 @@
-app.controller('loginController', function($rootScope, $scope, $state, UserService) {
+app.controller('loginController', function($rootScope, $scope, $state, $window, UserService) {
     $scope.title = "Sign In";
     $scope.loginVisibility = "";
     $scope.signupVisibility = "none";
@@ -23,7 +23,8 @@ app.controller('loginController', function($rootScope, $scope, $state, UserServi
                     .then(function() {
                         return firebase.auth().signInWithEmailAndPassword($scope.user.email, password)
                         .then(function() {
-                            $rootScope.userCode = $scope.user.cod_user;
+                            $window.localStorage.userCode = $scope.user.cod_user;
+                            //$rootScope.userCode = $scope.user.cod_user;
                             $state.go('home');
                         })
                         .catch(function(error) {

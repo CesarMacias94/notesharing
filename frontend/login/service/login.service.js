@@ -1,12 +1,13 @@
-app.service("LoginService", function($rootScope, $window) {
+app.service("LoginService", function($rootScope, $window, $state) {
     var _redirect = function () {
-        $rootScope.user = firebase.auth().currentUser;
-        console.log("UTENTE LOGGATO ---> ",$rootScope.user);
-
-        if (!$rootScope.user) {
-            console.log("NOT LOGGED");
-            $window.location.href = '/notesharing/#!/login';
-        }
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user)
+                $rootScope.user = user;
+            else {
+                console.log("NOT LOGGED");
+                $state.go('login');
+            }
+        });
     }
 
     return {

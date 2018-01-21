@@ -1,4 +1,4 @@
-app.controller('usersController', function($scope, $state, $rootScope, UserService, LoginService) {
+app.controller('usersController', function($scope, $state, $window, UserService, LoginService) {
     $scope.init = function() {
         LoginService.redirect();
 
@@ -7,7 +7,7 @@ app.controller('usersController', function($scope, $state, $rootScope, UserServi
         .then(function(res) {
             $scope.users = [];
             res.data.forEach(function(user) {
-                if(!(user.cod_user == $rootScope.userCode)) {
+                if(!(user.cod_user == $window.localStorage.userCode)) {
                     user.date_of_birth = user.date_of_birth.substring(0,10);
                     $scope.users.push(user);
                 }
@@ -18,7 +18,7 @@ app.controller('usersController', function($scope, $state, $rootScope, UserServi
     $scope.init();
 
     $scope.profile = function() {
-        $state.go('profile', {userCode: $rootScope.userCode});
+        $state.go('profile', {userCode: $window.localStorage.userCode});
     }
 
     $scope.logout = function() {
