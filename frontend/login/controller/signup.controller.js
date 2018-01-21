@@ -6,16 +6,14 @@ app.controller('signupController', function($scope, $state, UserService) {
         .then(function(res) {
             $scope.users = res.data;
             $scope.existUser = false;
-            console.log("USERNAME --> ",username);
             $scope.users.forEach(function(user) {
-                console.log("USER --> ",user);
                 if(user.username == username) {
                     $scope.existUser = true;
                     alert("This username already exist!");
                 }
             });
 
-            if(name == undefined || surname || undefined || date == undefined || email == undefined || username || undefined || password == undefined) {
+            if(name == undefined || surname == undefined || date == undefined || email == undefined || username == undefined || password == undefined) {
                 $scope.undefined = true;
                 if(!$scope.existUser) {
                     alert("All fields are required!");
@@ -36,6 +34,7 @@ app.controller('signupController', function($scope, $state, UserService) {
                     username: username,
                     password: password
                 };
+                
                 //chiamata al backend per salvare l'utente
                 UserService.addUser($scope.user)
                 .then(function(res) {

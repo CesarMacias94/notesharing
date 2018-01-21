@@ -1,22 +1,29 @@
-app.controller('courseController', function($scope, $state, $stateParams, $rootScope, CourseService, NoteService) {
-    console.log("CODICE CORSO ---> ", $rootScope.courseCode);
-
+app.controller('courseController', function($scope, $state, $stateParams, $rootScope, CourseService, NoteService, LoginService) {
     $scope.init = function() {
+        LoginService.redirect();
+
         //chiamata al backend per prendere tutti i dati di questo corso
         CourseService.getCourse($rootScope.courseCode)
         .then(function(res) {
             $scope.course = res.data;
-            console.log("CORSO ---> ",$scope.course);
 
             NoteService.getNotesByCourse($scope.course.cod_course)
             .then(function(res) {
                 $scope.notes = res.data;
-                console.log("NOTE ---> ",$scope.notes);
             })
         });
     }
 
     $scope.init();
+
+    $scope.profile = function() {
+        $state.go('profile', {userCode: $rootScope.userCode});
+    }
+
+    $scope.logout = function() {
+        firebase.auth().signOut();
+        $state.go('login');
+    }
 
     $scope.note = function(note) {
         $rootScope.noteCode = note.cod_note;

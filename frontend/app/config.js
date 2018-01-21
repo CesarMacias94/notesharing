@@ -21,7 +21,7 @@ app.config(function($stateProvider) {
         controller: 'noteController'
     }).state({
         name: 'profile',
-        url: '/profile',
+        url: '/profile/:userCode',
         templateUrl: 'app/view/profile.view.html',
         controller: 'userController'
     }).state({
@@ -32,12 +32,12 @@ app.config(function($stateProvider) {
     }).state({
         name: 'login',
         url: '/login',
-        templateUrl: 'login/login.html',
+        templateUrl: 'login/view/login.html',
         controller: 'loginController'
     }).state({
         name: 'signup',
         url: '/signup',
-        templateUrl: 'login/signup.html',
+        templateUrl: 'login/view/signup.html',
         controller: 'signupController',
         parent: 'login'
     });

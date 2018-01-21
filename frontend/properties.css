@@ -28,6 +28,9 @@
 .center {
     justify-content: center;
 }
+.textac {
+    text-align: center;
+}
 .fonts25 {
     font-size: 25px;
 }
@@ -44,4 +47,8 @@
 }
 .none {
     display: none;
+}
+.dropdown-menu-right {
+    right: 3px;
+    left: auto;
 }

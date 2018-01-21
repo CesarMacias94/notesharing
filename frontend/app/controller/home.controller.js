@@ -1,17 +1,27 @@
-app.controller('homeController', function($scope, $state, $rootScope, CourseService) {
+app.controller('homeController', function($rootScope, $scope, $state, $window, CourseService, LoginService) {
+    $rootScope.user = firebase.auth().currentUser;
+
     $scope.init = function() {
-        //chiamata al backend per prendere tutti i corsi
-        CourseService.getCourses()
-        .then(function(res) {
-            $scope.courses = res.data;
-            console.log("CORSI ---> ",$scope.courses);
-        });
+        LoginService.redirect();
+
+        if($scope.courses == undefined) {
+            //chiamata al backend per prendere tutti i corsi
+            CourseService.getCourses()
+            .then(function(res) {
+                $scope.courses = res.data;
+            });
+        }
     }
 
     $scope.init();
 
     $scope.profile = function() {
-        $state.go('profile');
+        $state.go('profile', {userCode: $rootScope.userCode});
+    }
+
+    $scope.logout = function() {
+        firebase.auth().signOut();
+        $state.go('login');
     }
 
     $scope.course = function(course) {
@@ -20,8 +30,4 @@ app.controller('homeController', function($scope, $state, $rootScope, CourseServ
             name: course.name.split(" ").join("-")
         });
     }
-
-    /*$scope.search = function() {
-        $scope.user;
-    }*/
 });

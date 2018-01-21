@@ -44,7 +44,7 @@
     opacity: 0.6;
     -webkit-filter: blur(3px); /* Safari */
     filter: blur(3px);
-    background-image: url(background_user.jpg);
+    background-image: url(images/background_user.jpg);
     background-repeat: no-repeat;
     -ms-background-size: cover;
     -o-background-size: cover;
@@ -217,7 +217,7 @@ input:-ms-input-placeholder {color: #999999;}
     .login-img {
         width: 68px;
         height: 72px;
-        background-image: url(bicocca.png);
+        background-image: url(images/bicocca.png);
         background-size: cover;
         cursor: pointer;
         display: flex;

@@ -2,7 +2,7 @@
 .logoimg {
     width: 68px;
     height: 72px;
-    background-image: url(bicocca.png);
+    background-image: url(images/bicocca.png);
     background-size: cover;
     cursor: pointer;
     display: flex;
@@ -10,7 +10,7 @@
 .profileimg {
     width: 68px;
     height: 72px;
-    background-image: url(profile.png);
+    background-image: url(images/profile.png);
     background-size: cover;
     cursor: pointer;
     display: flex;
@@ -35,7 +35,7 @@
     opacity: 0.6;
     -webkit-filter: blur(3px); /* Safari */
     filter: blur(3px);
-    background-image: url(background_bicocca.jpg);
+    background-image: url(images/background_bicocca.jpg);
     background-repeat: no-repeat;
     -ms-background-size: cover;
     -o-background-size: cover;
@@ -63,7 +63,35 @@
     opacity: 0.6;
     -webkit-filter: blur(3px); /* Safari */
     filter: blur(3px);
-    background-image: url(background_course.jpg);
+    background-image: url(images/background_course.jpg);
+    background-repeat: no-repeat;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.usersbackground {
+    position: relative;
+    overflow: hidden;
+    background-color: #868e96;
+    min-height: 120px;
+    display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;
+}
+.usersbackground:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.6;
+    -webkit-filter: blur(3px); /* Safari */
+    filter: blur(3px);
+    background-image: url(images/background_user.jpg);
     background-repeat: no-repeat;
     -ms-background-size: cover;
     -o-background-size: cover;
@@ -91,7 +119,7 @@
     opacity: 0.6;
     -webkit-filter: blur(3px); /* Safari */
     filter: blur(3px);
-    background-image: url(background_user.jpg);
+    background-image: url(images/background_user.jpg);
     background-repeat: no-repeat;
     -ms-background-size: cover;
     -o-background-size: cover;
@@ -147,7 +175,7 @@
         opacity: 0.6;
         -webkit-filter: blur(3px); /* Safari */
         filter: blur(3px);
-        background-image: url(background_user.jpg);
+        background-image: url(images/background_user.jpg);
         background-repeat: no-repeat;
         -ms-background-size: cover;
         -o-background-size: cover;

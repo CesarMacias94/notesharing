@@ -1,17 +1,32 @@
-app.controller('addnoteController', function($scope, CourseService, NoteService) {
+app.controller('addnoteController', function($rootScope, $scope, CourseService, NoteService, LoginService) {
     $scope.note;
     $scope.name;
     $scope.text;
     $scope.course =  "Choose A Course";
 
-    //chiamata al backend per prendere tutti i corsi,
-    CourseService.getCourses()
-    .then(function(res) {
-        $scope.courses = [];
-        angular.forEach(res.data, function(data) {
-            $scope.courses.push(data);
+    $scope.init = function() {
+        LoginService.redirect();
+
+        //chiamata al backend per prendere tutti i corsi
+        CourseService.getCourses()
+        .then(function(res) {
+            $scope.courses = [];
+            angular.forEach(res.data, function(data) {
+                $scope.courses.push(data);
+            });
         });
-    });
+    }
+
+    $scope.init();
+
+    $scope.profile = function() {
+        $state.go('profile', {userCode: $rootScope.userCode});
+    }
+
+    $scope.logout = function() {
+        firebase.auth().signOut();
+        $state.go('login');
+    }
 
     $scope.chooseCourse = function(course) {
         $scope.course = course.name;
@@ -19,13 +34,11 @@ app.controller('addnoteController', function($scope, CourseService, NoteService)
     }
 
     $scope.save = function(name, text, course) {
-        //manca validazione input
         if(course != "Choose A Course") {
-            //cod user, da definire come settarlo
             $scope.note = {
                 text: text,
                 name: name,
-                cod_user: 1,
+                cod_user: $rootScope.userCode,
                 cod_course: $scope.cod_course
             };
             //chiamata al backend per salvare il post
