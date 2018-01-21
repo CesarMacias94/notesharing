@@ -45,6 +45,10 @@ Per testare l'aplicativo, dopo aver lanciato XAMPP ed aver verificato che sia Ap
 
 	http://localhost/notesharing/#!/home
 	
+Un utente è già stato registrato nel caso si voglia provare l'applicativo senza registrarsi:
+
+	username = "JD"
+	password = "notesharing"
 
 ## Note
 Notesharing consente di aggiungere delle note inerenti ad alcuni corsi/materie e di visualizzare quelli degli altri utenti.
