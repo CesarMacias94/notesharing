@@ -4,7 +4,7 @@
 * XAMPP v3.2.2
 * Node.js v6.9.5
 * Apache Tomcat v9.0.0.M17
-* MySQL Workbench v5.7
+* MySQL v5.7
 	
 ## Configurazione
 
@@ -18,6 +18,10 @@ Copiare l'intero contenuto della cartella "frontend" all'interno di questa carte
 
 	npm install
 	
+Nel percorso:
+	
+	C:\xampp\htdocs\notesharing
+	
 ### Backend
 
 Copiare il file "notesharing.war" all'interno della cartella apache: 
@@ -30,7 +34,7 @@ Avviare il tomcat da linea di comando eseguendo il comando "startup.bat" all'int
 	
 ### DB
 
-Dopo aver create il seguente utente: 
+Dopo aver creato, dandogli tutti i privilegi, il seguente utente all'interno di una connessione: 
 
 	username = "notesharingDB"
 	password = "Notesharing.db"
